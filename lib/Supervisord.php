@@ -1,6 +1,6 @@
 <?php
 /**
- * supervisor-php
+ * supervisord-php
  *
  * LICENSE
  *
@@ -12,8 +12,8 @@
  * obtain it through the world-wide-web, please send an email
  * to tyler@logicmasterminds.com so we can send you a copy immediately.
  *
- * @category supervisor-php
- * @package supervisor-php
+ * @category supervisord-php
+ * @package supervisord-php
  * @author Tyler Davis <tyler@logicmasterminds.com>
  * @copyright Copyright (c) 2012 Tyler Davis (http://tyd.github.com/)
  * @license   https://github.com/tyd/supervisord-php/blob/master/LICENSE New BSD License
