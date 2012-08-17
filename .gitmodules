@@ -1,3 +1,0 @@
-[submodule "vendor/cURL"]
-	path = vendor/cURL
-	url = git://github.com/dongsheng/cURL.git
