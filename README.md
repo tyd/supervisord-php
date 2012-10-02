@@ -21,3 +21,5 @@ Simple PHP XMLRPC Client for http://supervisord.org
 
 It is very important to separate new features or improvements into separate feature branches, and to send a pull
 request for each branch. This allows me to review and pull in new features or improvements individually.
+
+[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/0a0eef78e67e259fa1772e0f444e5270 "githalytics.com")](http://githalytics.com/tyd/supervisord-php)
