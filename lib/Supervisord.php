@@ -15,7 +15,7 @@
  * @category supervisord-php
  * @package supervisord-php
  * @author Tyler Davis <tyler@logicmasterminds.com>
- * @copyright Copyright (c) 2012 Tyler Davis (http://tyd.github.com/)
+ * @copyright Copyright (c) 2014 Tyler Davis (http://tyd.github.com/)
  * @license   https://github.com/tyd/supervisord-php/blob/master/LICENSE New BSD License
  */
 
@@ -38,7 +38,7 @@ class Supervisord {
 
         // Basic auth?
         if ($username != '' && $password != '')
-            $this->_haeders[] = 'Authorization: Basic '.base64_encode($username.':'.$password);
+            $this->_headers[] = 'Authorization: Basic '.base64_encode($username.':'.$password);
     }
 
     /**
@@ -52,7 +52,7 @@ class Supervisord {
         $options = array(
             'http' => array(
                 'method' => 'POST',
-                'header' => $this->_haeders,
+                'header' => $this->_headers,
                 'content' => $request
             )
         );
@@ -109,7 +109,7 @@ class Supervisord {
      * instance it is communicating in the case of environments where
      * multiple Supervisors may be running.
      *
-     * The identification is a string that must be set in SupervisorÕs
+     * The identification is a string that must be set in Supervisor's
      * configuration file. This method simply returns that
      * value back to the client.
      *
@@ -198,7 +198,7 @@ class Supervisord {
     /**
      * Get info about a process
      *
-     * @param string $name The name of the process (or Ôgroup:nameÕ)
+     * @param string $name The name of the process (or 'group:name')
      * @return array An array containing data about the process
      */
     public function getProcessInfo($name) {
@@ -226,7 +226,7 @@ class Supervisord {
     /**
      * Start a process
      *
-     * @param string $name Process name (or Ôgroup:nameÕ, or Ôgroup:*Ô)
+     * @param string $name Process name (or 'group:name', or 'group:*')
      * @param boolean $wait Wait for process to be fully started
      * @return boolean Always true unless error
      */
@@ -237,7 +237,7 @@ class Supervisord {
     }
 
     /**
-     * Start all processes in the group named ÔnameÕ
+     * Start all processes in the group named 'name'
      *
      * @param string $name The group name
      * @param boolean $wait Wait for each process to be fully started
@@ -251,7 +251,7 @@ class Supervisord {
     }
 
     /**
-     * Stop all processes in the process group named ÔnameÕ
+     * Stop all processes in the process group named 'name'
      *
      * @param string $name The group name
      * @param boolean $wait Wait for each process to be fully stopped
@@ -268,12 +268,12 @@ class Supervisord {
      * Send a string of chars to the stdin of the process name.
      *
      * If non-7-bit data is sent (unicode), it is encoded to utf-8 before being sent to
-     * the processÕ stdin. If chars is not a string or is not unicode, raise
+     * the process' stdin. If chars is not a string or is not unicode, raise
      * INCORRECT_PARAMETERS. If the process is not running, raise NOT_RUNNING.
-     * If the processÕ stdin cannot accept input (e.g. it was closed by
+     * If the process' stdin cannot accept input (e.g. it was closed by
      * the child process), raise NO_FILE.
      *
-     * @param string $name The process name to send to (or Ôgroup:nameÕ)
+     * @param string $name The process name to send to (or 'group:name')
      * @param string $chars The character data to send to the process
      * @return boolean Always return True unless error
      */
@@ -288,7 +288,7 @@ class Supervisord {
      * Send an event that will be received by event listener subprocesses
      * subscribing to the RemoteCommunicationEvent.
      *
-     * @param string $type String for the ÒtypeÓ key in the event header
+     * @param string $type String for the 'type' key in the event header
      * @param string $data Data for the event body
      * @return boolean Always return True unless error
      */
@@ -330,9 +330,9 @@ class Supervisord {
     */
 
     /**
-     * Read length bytes from nameÕs stdout log starting at offset
+     * Read length bytes from name's stdout log starting at offset
      *
-     * @param string $name The name of the process (or Ôgroup:nameÕ)
+     * @param string $name The name of the process (or 'group:name')
      * @param int $offset Offset offset to start reading from.
      * @param int $length Length number of bytes to read from the log.
      * @return string Bytes of log
@@ -348,7 +348,7 @@ class Supervisord {
     /**
      * Read length bytes from nameÕs stderr log starting at offset
      *
-     * @param string $name The name of the process (or Ôgroup:nameÕ)
+     * @param string $name The name of the process (or 'group:name')
      * @param int $offset Offset offset to start reading from.
      * @param int $length Length number of bytes to read from the log.
      * @return string Bytes of log
@@ -366,7 +366,7 @@ class Supervisord {
      * readProcessStdoutLog(). Use readProcessStdoutLog() to read
      * chunks and tailProcessStdoutLog() to tail.
      *
-     * @param string $name The name of the process (or Ôgroup:nameÕ)
+     * @param string $name The name of the process (or 'group:name')
      * @param int $offset Offset offset to start reading from.
      * @param int $length Length number of bytes to read from the log.
      * @return string Bytes of log
@@ -382,7 +382,7 @@ class Supervisord {
     /**
      * Clear the stdout and stderr logs for the named process and reopen them.
      *
-     * @param string $name The name of the process (or Ôgroup:nameÕ)
+     * @param string $name The name of the process (or group:name)
      * @return boolean Always return True unless error
      */
     public function clearProcessLogs($name) {
