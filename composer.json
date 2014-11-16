@@ -1,0 +1,14 @@
+{
+	"name": "tyd/supervisord-php",
+	"description": "Simple PHP XMLRPC Client for http://supervisord.org",
+	"keywords": ["php","supervisor"],
+	"type": "library",
+	"license": "MIT",
+	"require":
+		{
+		"php": ">=5.2.0"
+		},
+	"autoload": {
+		"classmap": ["lib/"]
+	}
+}
